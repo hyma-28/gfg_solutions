@@ -1,0 +1,9 @@
+class Solution:
+    def inOrder(self,root):
+        # code here
+        arr=[]
+        if root:
+            arr+=self.inOrder(root.left)
+            arr.append(root.data)
+            arr+=self.inOrder(root.right)
+        return arr
