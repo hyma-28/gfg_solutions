@@ -1,0 +1,14 @@
+class Solution:
+    #Function to return maximum path sum from any node in a tree.
+    def findMaxSum(self, root): 
+        def helper(node):
+            nonlocal max_sum
+            if not node:
+                return 0
+            left=max(helper(node.left),0)
+            right=max(helper(node.right),0)
+            max_sum=max(max_sum,left+right+node.data)
+            return node.data+max(left,right)
+        max_sum=float('-inf')
+        helper(root)
+        return max_sum
